@@ -1,18 +1,22 @@
 name: Docker Image CI
 
+# This triggers the config
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
+# this defines when the workflow runs. When there is any push or pull request
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    # This sets a "build" job running on Ubuntu
       - name: Checkout
         uses: actions/checkout@v4
       
+      # Docker Hub auth
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
@@ -22,6 +26,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       
+      # Uses Docker's build system called Buildx
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
