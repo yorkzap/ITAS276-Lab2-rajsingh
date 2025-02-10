@@ -27,4 +27,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: rajsingh/itas276-lab2:latest
+          tags: yorkzap/itas276-lab2:latest
